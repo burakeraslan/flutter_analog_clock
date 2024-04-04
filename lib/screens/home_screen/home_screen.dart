@@ -3,6 +3,7 @@ import 'package:flutter_analog_clock/constants/text_constants.dart';
 import 'package:flutter_analog_clock/constants/theme_constants.dart';
 import 'package:flutter_analog_clock/controller/home_controller/home_controller.dart';
 import 'package:flutter_analog_clock/screens/home_screen/painter/clock_painter.dart';
+import 'package:flutter_analog_clock/widgets/country_card_widget.dart';
 import 'package:get/get.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -35,7 +36,7 @@ class HomeScreen extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Text(
-                        '${controller.time.hour}:${controller.time.minute}',
+                        '${controller.time.hour.toString().padLeft(2, '0')}:${controller.time.minute.toString().padLeft(2, '0')}',
                         style: const TextStyle(
                           fontFamily: quicksandLight,
                           fontSize: 100,
@@ -63,6 +64,33 @@ class HomeScreen extends StatelessWidget {
                       ),
                     ),
                   ),
+                  SingleChildScrollView(
+                    scrollDirection: Axis.horizontal,
+                    child: Row(
+                      children: [
+                        CountryCardWidget(
+                          currentTime: controller.time,
+                          location: 'New York, US',
+                          hourDifference: -7,
+                        ).paddingSymmetric(horizontal: 10),
+                        CountryCardWidget(
+                          currentTime: controller.time,
+                          location: 'London, UK',
+                          hourDifference: -2,
+                        ).paddingSymmetric(horizontal: 10),
+                        CountryCardWidget(
+                          currentTime: controller.time,
+                          location: 'Tokyo, JP',
+                          hourDifference: 6,
+                        ).paddingSymmetric(horizontal: 10),
+                        CountryCardWidget(
+                          currentTime: controller.time,
+                          location: 'Paris, FR',
+                          hourDifference: -1,
+                        ).paddingSymmetric(horizontal: 10),
+                      ],
+                    ),
+                  ).paddingSymmetric(vertical: 20),
                 ],
               ),
             );

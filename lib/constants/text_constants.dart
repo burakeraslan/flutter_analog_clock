@@ -6,4 +6,4 @@ const quicksandMedium = 'Quicksand-Medium';
 const quicksandSemiBold = 'Quicksand-SemiBold';
 
 // text
-const String location = 'Maltepe, Istanbul | TR';
+const String location = 'Istanbul, TR';

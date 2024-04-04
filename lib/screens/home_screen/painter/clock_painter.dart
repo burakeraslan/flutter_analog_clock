@@ -18,7 +18,7 @@ class ClockPainter extends CustomPainter {
     canvas.drawCircle(center, radius, circlePaint);
 
     // Dot
-    final dotPaint = Paint()..color = Colors.grey.withOpacity(0.5);
+    final dotPaint = Paint()..color = Colors.grey.withOpacity(0.3);
     canvas.drawCircle(center, dotRadius, dotPaint);
 
     // Second Line
@@ -74,7 +74,7 @@ class ClockPainter extends CustomPainter {
       center.dy + dotRadius * sin(hourAngle),
     );
 
-    final hourLength = radius * 0.6;
+    final hourLength = radius * 0.5;
     final hourEndPoint = Offset(
       center.dx + hourLength * cos(hourAngle),
       center.dy + hourLength * sin(hourAngle),
